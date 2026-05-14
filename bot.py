@@ -1,19 +1,18 @@
 import os
 import asyncio
-import sys
-if sys.platform.startswith('win'):
-    asyncio.set_event_loop_policy(asyncio.WindowsSelectorEventLoopPolicy())
 from dotenv import load_dotenv
 from aiogram import Bot, Dispatcher, types
 from aiogram.filters import Command
 from openai import AsyncOpenAI
 
 load_dotenv()
-bot = Bot(token=os.getenv('TG_TOKEN'))
+
+bot = Bot(token=os.getenv("TG_TOKEN"))
 dp = Dispatcher()
+
 client = AsyncOpenAI(
     base_url="https://openrouter.ai/api/v1",
-    api_key=os.getenv('OPENROUTER_API_KEY'),
+    api_key=os.getenv("OPENROUTER_API_KEY"),
 )
 
 history = {}
