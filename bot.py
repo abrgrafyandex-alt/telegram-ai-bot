@@ -35,7 +35,7 @@ async def handle_message(message: types.Message):
     await message.reply("🤔 Думаю...")
     try:
         response = await client.chat.completions.create(
-            model="deepseek/deepseek-chat:free",
+            model="deepseek/deepseek-chat-v3-0324:free",
             messages=messages
         )
         answer = response.choices[0].message.content
