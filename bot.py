@@ -10,10 +10,6 @@ from openai import AsyncOpenAI
 
 load_dotenv()
 bot = Bot(token=os.getenv('TG_TOKEN'))
-import aiohttp
-from aiogram.client.session.aiohttp import AiohttpSession
-session = AiohttpSession(connector=aiohttp.TCPConnector(ssl=False), timeout=aiohttp.ClientTimeout(total=60))
-bot.session = session  # увеличьте таймаут
 dp = Dispatcher()
 client = AsyncOpenAI(
     base_url="https://openrouter.ai/api/v1",
